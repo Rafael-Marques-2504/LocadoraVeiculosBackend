@@ -1,0 +1,26 @@
+{
+  "name": "LocadoraVeiculos - Dev Environment",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "forwardPorts": [5000, 1433],
+  "portsAttributes": {
+    "5000": {
+      "label": "API / Swagger",
+      "onAutoForward": "openBrowser"
+    },
+    "1433": {
+      "label": "SQL Server"
+    }
+  },
+  "postCreateCommand": "dotnet tool install --global dotnet-ef && echo 'export PATH=\"$PATH:$HOME/.dotnet/tools\"' >> ~/.bashrc && dotnet restore",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.csdevkit",
+        "ms-mssql.mssql"
+      ]
+    }
+  }
+}
